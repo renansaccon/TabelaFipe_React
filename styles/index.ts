@@ -19,9 +19,11 @@ const styles = StyleSheet.create({
         height: 60,
         borderBottomWidth: 1,
         padding: 16,
-        justifyContent: 'center',
+        justifyContent: 'space-between',
         backgroundColor: Colors.card,
-        borderColor: Colors.border
+        borderColor: Colors.border,
+        flexDirection: 'row',
+        alignItems:'center'
 
     }
 })

@@ -9,7 +9,9 @@ export default function Modelos() {
 
   const {codigoMarca} = useLocalSearchParams();
 
-  const {data, error, isLoading } = useSWR<ListaModelos> (`carros/marcas/${codigoMarca}/modelos`, fetcher)
+  const {data, error, isLoading } = useSWR<ListaModelos> (`carros/marcas/${codigoMarca}/modelos`, fetcher, {
+    dedupingInterval: 60_000
+  })
 
   const handlePress = (item: FipeItem) => {
     const {codigo} = item
@@ -17,6 +19,6 @@ export default function Modelos() {
   }
   
   return (
-    <FipeScreen data={data?.modelos} handlePress={handlePress} />
+    <FipeScreen data={data?.modelos} handlePress={handlePress} isLoading={isLoading}/>
   );
 }
